@@ -1,0 +1,240 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f5c53b; /* Galbenul Canva din imagine */
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.harta-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.harta-header {
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.btn-inapoi {
+  position: absolute;
+  left: 0;
+  background-color: #000000;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  transition: opacity 0.2s ease;
+}
+
+.btn-inapoi:hover {
+  opacity: 0.8;
+}
+
+.harta-header h1 {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #1a1a1a;
+  text-align: center;
+}
+
+/* Grila cu cele 7 mese pe tot ecranul */
+.mese-layout {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 30px;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.rand-mese {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Masa interactivă */
+.masa-item {
+  position: relative;
+  text-decoration: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.masa-item:hover {
+  transform: translateY(-8px) scale(1.05);
+}
+
+.masa-item img {
+  width: clamp(140px, 18vw, 240px);
+  height: auto;
+  display: block;
+}
+
+.numar-masa {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(2.5rem, 4vw, 4.2rem);
+  font-weight: 900;
+  color: #000000;
+  user-select: none;
+}
+
+.masa-item.ocupata img {
+  opacity: 0.55;
+}
+
+.masa-item.ocupata .numar-masa {
+  color: #b91c1c;
+}
+
+/* Modal / Tab care se deschide prin :target */
+.modal-tab {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  z-index: 100;
+}
+
+.modal-tab:target {
+  display: flex;
+}
+
+.modal-card {
+  position: relative;
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 480px;
+  border-radius: 14px;
+  padding: 28px 24px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+  animation: popup 0.25s ease-out;
+}
+
+@keyframes popup {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.modal-inchide {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  text-decoration: none;
+  font-size: 2rem;
+  color: #666;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.modal-inchide:hover {
+  color: #000;
+}
+
+.modal-card h2 {
+  margin-top: 0;
+  margin-bottom: 18px;
+  font-size: 1.4rem;
+  color: #1a1a1a;
+}
+
+/* Formularul de rezervare */
+.rezervare-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rezervare-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.rezervare-form input {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.rand-dublu {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.btn-trimite {
+  background-color: #b91c1c; /* Roșu turcesc */
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  margin-top: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.btn-trimite:hover {
+  background-color: #8b0000;
+}
+
+/* Secțiunea de istoric */
+.istoric-zona {
+  margin-top: 22px;
+  border-top: 1px dashed #ddd;
+  padding-top: 14px;
+}
+
+.istoric-zona h3 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+.istoric-lista {
+  list-style: none;
+  padding: 0;
+  font-size: 0.85rem;
+  color: #555;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fara-istoric {
+  font-size: 0.85rem;
+  color: #888;
+  font-style: italic;
+}

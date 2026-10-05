@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Turkish Kebab - Harta Mese</title>
+  <link rel="stylesheet" href="mese.css" />
+</head>
+<body>
+  <div class="harta-container">
+    <header class="harta-header">
+      <a href="home.html" class="btn-inapoi">&larr; Înapoi</a>
+      <h1>Selectează o masă pentru rezervare</h1>
+    </header>
+
+    <!-- Dispunerea celor 7 mese pe ecran -->
+    <main class="mese-layout">
+      <!-- Rândul de sus (Mesele 1 - 4) -->
+      <div class="rand-mese">
+        <a href="#masa-1" class="masa-item">
+          <img src="mese.png" alt="Masa 1" />
+          <span class="numar-masa">1</span>
+        </a>
+        <a href="#masa-2" class="masa-item">
+          <img src="mese.png" alt="Masa 2" />
+          <span class="numar-masa">2</span>
+        </a>
+        <a href="#masa-3" class="masa-item">
+          <img src="mese.png" alt="Masa 3" />
+          <span class="numar-masa">3</span>
+        </a>
+        <a href="#masa-4" class="masa-item">
+          <img src="mese.png" alt="Masa 4" />
+          <span class="numar-masa">4</span>
+        </a>
+      </div>
+
+      <!-- Rândul de jos (Mesele 5 - 7) -->
+      <div class="rand-mese">
+        <a href="#masa-5" class="masa-item">
+          <img src="mese.png" alt="Masa 5" />
+          <span class="numar-masa">5</span>
+        </a>
+        <a href="#masa-6" class="masa-item ocupata">
+          <img src="mese.png" alt="Masa 6" />
+          <span class="numar-masa">6</span>
+        </a>
+        <a href="#masa-7" class="masa-item">
+          <img src="mese.png" alt="Masa 7" />
+          <span class="numar-masa">7</span>
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <!-- Ferestre modale (câte una pentru fiecare masă) -->
+
+  <!-- Modal Masa 1 -->
+  <div id="masa-1" class="modal-tab">
+    <div class="modal-card">
+      <a href="#" class="modal-inchide">&times;</a>
+      <h2>Rezervare Masa 1</h2>
+      
+      <form class="rezervare-form">
+        <label>
+          Nume client
+          <input type="text" placeholder="Ex: Popescu Andrei" required />
+        </label>
+        
+        <label>
+          Număr de telefon
+          <input type="tel" placeholder="Ex: 0721 000 000" required />
+        </label>
+
+        <div class="rand-dublu">
+          <label>
+            Număr persoane
+            <input type="number" min="1" max="8" value="2" required />
+          </label>
+          <label>
+            Ora rezervării
+            <input type="time" value="19:00" required />
+          </label>
+        </div>
+
+        <button type="submit" class="btn-trimite">Confirmă Rezervarea</button>
+      </form>
+
+      <div class="istoric-zona">
+        <h3>Istoric Rezervări</h3>
+        <ul class="istoric-lista">
+          <li><strong>14:00 - 15:30:</strong> Elena Ionescu (2 pers.)</li>
+          <li><strong>12:00 - 13:30:</strong> Radu Vasile (4 pers.)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Masa 2 -->
+  <div id="masa-2" class="modal-tab">
+    <div class="modal-card">
+      <a href="#" class="modal-inchide">&times;</a>
+      <h2>Rezervare Masa 2</h2>
+      <form class="rezervare-form">
+        <label>
+          Nume client
+          <input type="text" placeholder="Ex: Maria Dumitru" required />
+        </label>
+        <label>
+          Număr de telefon
+          <input type="tel" placeholder="Ex: 0732 111 222" required />
+        </label>
+        <div class="rand-dublu">
+          <label>
+            Număr persoane
+            <input type="number" min="1" max="8" value="4" required />
+          </label>
+          <label>
+            Ora rezervării
+            <input type="time" value="20:00" required />
+          </label>
+        </div>
+        <button type="submit" class="btn-trimite">Confirmă Rezervarea</button>
+      </form>
+      <div class="istoric-zona">
+        <h3>Istoric Rezervări</h3>
+        <ul class="istoric-lista">
+          <li><strong>17:00 - 18:30:</strong> Dan Georgescu (3 pers.)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Masa 3 -->
+  <div id="masa-3" class="modal-tab">
+    <div class="modal-card">
+      <a href="#" class="modal-inchide">&times;</a>
+      <h2>Rezervare Masa 3</h2>
+      <form class="rezervare-form">
+        <label>Nume client <input type="text" placeholder="Ex: Nume Client" required /></label>
+        <label>Număr de telefon <input type="tel" placeholder="07xx xxx xxx" required /></label>
+        <div class="rand-dublu">
+          <label>Număr persoane <input type="number" min="1" max="8" value="2" required /></label>
+          <label>Ora rezervării <input type="time" value="18:30" required /></label>
+        </div>
+        <button type="submit" class="btn-trimite">Confirmă Rezervarea</button>
+      </form>
+      <div class="istoric-zona">
+        <h3>Istoric Rezervări</h3>
+        <p class="fara-istoric">Nu există rezervări anterioare pentru astăzi.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Masa 4 -->
+  <div id="masa-4" class="modal-tab">
+    <div class="modal-card">
+      <a href="#" class="modal-inchide">&times;</a>
+      <h2>Rezervare Masa 4</h2>
+      <form class="rezervare-form">
+        <label>Nume client <input type="text" placeholder="Ex: Nume Client" required /></label>
+        <label>Număr de telefon <input type="tel" placeholder="07xx xxx xxx" required /></label>
+        <div class="rand-dublu">
+          <label>Număr persoane <input type="number" min="1" max="8" value="4" required /></label>
+          <label>Ora rezervării <input type="time" value="19:30" required /></label>
+        </div>
+        <button type="submit" class="btn-trimite">Confirmă Rezervarea</button>
+      </form>
+      <div class="istoric-zona">
+        <h3>Istoric Rezervări</h3>
+        <ul class="istoric-lista">
+          <li><strong>13:00 - 14:00:</strong> Liviu M. (2 pers.)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Masa 5 -->
+  <div id="masa-5" class="modal-tab">
+    <div class="modal-card">
+      <a href="#" class="modal-inchide">&times;</a>
+      <h2>Rezervare Masa 5</h2>
+      <form class="rezervare-form">
+        <label>Nume client <input type="text" placeholder="Ex: Nume Client" required /></label>
+        <label>Număr de telefon <input type="tel" placeholder="07xx xxx xxx" required /></label>
+        <div class="rand-dublu">
+          <label>Număr persoane <input type="number" min="1" max="8" value="2" required /></label>
+          <label>Ora rezervării <input type="time" value="20:30" required /></label>
+        </div>
+        <button type="submit" class="btn-trimite">Confirmă Rezervarea</button>
+      </form>
+      <div class="istoric-zona">
+        <h3>Istoric Rezervări</h3>
+        <p class="fara-istoric">Nu există rezervări anterioare pentru astăzi.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Masa 6 -->
+  <div id="masa-6" class="modal-tab">
+    <div class="modal-card">
+      <a href="#" class="modal-inchide">&times;</a>
+      <h2>Rezervare Masa 6 (În curs)</h2>
+      <form class="rezervare-form">
+        <label>Nume client <input type="text" value="Constantin Barbu" required /></label>
+        <label>Număr de telefon <input type="tel" value="0744 555 666" required /></label>
+        <div class="rand-dublu">
+          <label>Număr persoane <input type="number" min="1" max="8" value="4" required /></label>
+          <label>Ora rezervării <input type="time" value="21:00" required /></label>
+        </div>
+        <button type="submit" class="btn-trimite">Actualizează Rezervarea</button>
+      </form>
+      <div class="istoric-zona">
+        <h3>Istoric Rezervări</h3>
+        <ul class="istoric-lista">
+          <li><strong>Activă acum:</strong> Fam. Barbu (4 pers.)</li>
+          <li><strong>16:00 - 18:00:</strong> Alin Popa (2 pers.)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Masa 7 -->
+  <div id="masa-7" class="modal-tab">
+    <div class="modal-card">
+      <a href="#" class="modal-inchide">&times;</a>
+      <h2>Rezervare Masa 7</h2>
+      <form class="rezervare-form">
+        <label>Nume client <input type="text" placeholder="Ex: Nume Client" required /></label>
+        <label>Număr de telefon <input type="tel" placeholder="07xx xxx xxx" required /></label>
+        <div class="rand-dublu">
+          <label>Număr persoane <input type="number" min="1" max="8" value="6" required /></label>
+          <label>Ora rezervării <input type="time" value="19:00" required /></label>
+        </div>
+        <button type="submit" class="btn-trimite">Confirmă Rezervarea</button>
+      </form>
+      <div class="istoric-zona">
+        <h3>Istoric Rezervări</h3>
+        <p class="fara-istoric">Nu există rezervări anterioare pentru astăzi.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

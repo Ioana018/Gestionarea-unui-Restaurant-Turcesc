@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Turkish Kebab - Echipa Noastră</title>
+  <link rel="stylesheet" href="angajati.css" />
+</head>
+<body>
+  <div class="page-container">
+    <!-- Antet simplificat -->
+    <header class="header-angajati">
+      <a href="home.html" class="btn-inapoi">&larr; Înapoi</a>
+      <h1>Echipa Turkish Kebab</h1>
+      <p class="subtitlu">3 membri înregistrați &bull; 2 activi pe tură</p>
+    </header>
+
+    <!-- Bară orizontală simplistă de adăugare angajat nou -->
+    <section class="bara-adaugare">
+      <form class="form-rapid">
+        <input type="text" placeholder="Nume și prenume angajat" required />
+        <select required>
+          <option value="" disabled selected>Selectează rolul</option>
+          <option value="grill">Ocakbaşı (Grill Master)</option>
+          <option value="firin">Pitar (Cuptor / Pide)</option>
+          <option value="ospatar">Ospătar / Servire</option>
+          <option value="manager">Manager de sală</option>
+        </select>
+        <button type="submit">+ Înregistrează</button>
+      </form>
+    </section>
+
+    <!-- Grilă de profile simpliste -->
+    <main class="grid-angajati">
+      <!-- Card Angajat 1 -->
+      <article class="card-angajat activ">
+        <div class="avatar">MK</div>
+        <div class="detalii">
+          <h3>Mehmet Kaya</h3>
+          <span class="rol rol-grill">Grill Master</span>
+          <p class="telefon">&#128222; 0721 123 456</p>
+        </div>
+        <div class="status-badge activ">În tură</div>
+      </article>
+
+      <!-- Card Angajat 2 -->
+      <article class="card-angajat activ">
+        <div class="avatar">AY</div>
+        <div class="detalii">
+          <h3>Aylin Yilmaz</h3>
+          <span class="rol rol-ospatar">Ospătar</span>
+          <p class="telefon">&#128222; 0732 987 654</p>
+        </div>
+        <div class="status-badge activ">În tură</div>
+      </article>
+
+      <!-- Card Angajat 3 (Liber de tură) -->
+      <article class="card-angajat liber">
+        <div class="avatar">ED</div>
+        <div class="detalii">
+          <h3>Emre Demir</h3>
+          <span class="rol rol-firin">Pitar (Cuptor)</span>
+          <p class="telefon">&#128222; 0744 555 111</p>
+        </div>
+        <div class="status-badge liber">Liber</div>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

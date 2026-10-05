@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Turkish Kebab - Mockup</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>Turkish Kebab</h1>
+    <p>Monitorizarea preparatelor și a comenzilor din bucătărie.</p>
+    <p class="app-count">3 comenzi înregistrate, dintre care 2 active</p>
+  </header>
+
+  <main class="container">
+    <!-- Formular adăugare comandă -->
+    <section class="panel">
+      <h2>Adaugă comandă</h2>
+      <form class="item-form">
+        <label>
+          Denumire preparat
+          <input type="text" name="titlu" placeholder="Ex: Urfa Kebab la lipie" required />
+        </label>
+        
+        <label>
+          Zonă preparare
+          <select name="eticheta">
+            <option value="grill">Grill</option>
+            <option value="cuptor">Cuptor</option>
+            <option value="desert">Deserturi</option>
+          </select>
+        </label>
+
+        <button type="submit">Trimite la bucătărie</button>
+      </form>
+    </section>
+
+    <!-- Lista comenzilor / preparatelor -->
+    <section class="panel">
+      <h2>Comenzi în lucru</h2>
+      <!-- Când lista e goală: <p class="empty">Nu există niciun element.</p> -->
+      <ul class="item-list">
+        <li class="item-card">
+          <div class="card-info">
+            <h3>Adana Kebab cu ardei copt</h3>
+            <span class="badge badge-grill">Grill</span>
+          </div>
+          <span class="status">În preparare</span>
+        </li>
+
+        <li class="item-card done">
+          <div class="card-info">
+            <h3>Pide cu vită și cașcaval (Kashar)</h3>
+            <span class="badge badge-cuptor">Cuptor</span>
+          </div>
+          <span class="status">Gata de servire</span>
+        </li>
+
+        <li class="item-card">
+          <div class="card-info">
+            <h3>Künefe cu fistic de Antep</h3>
+            <span class="badge badge-desert">Deserturi</span>
+          </div>
+          <span class="status">În preparare</span>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    Proiect Tehnologii Web &bull; Turkish Kebab
+  </footer>
+</body>
+</html>
