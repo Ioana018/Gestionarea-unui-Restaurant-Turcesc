@@ -2,15 +2,6 @@
 
 Turkish Kebab is a kitchen management web application designed to track food orders and dishes across restaurant preparation stations.
 
-## Data model
-
-| Field | Type | Notes |
-| --- | --- | --- |
-| dish_name | text | required, max 100 chars |
-| is_ready | boolean | toggled from the list, default false (in preparation) |
-| station | fixed values | grill, cuptor, desert |
-| category | relation | Kebab, Pide, Meze, Deserturi |
-| waiter | relation | the employee who took the order (from week 11) |
 
 Sample data used across all stages:
 1. Adana Kebab cu ardei copt, active, grill
