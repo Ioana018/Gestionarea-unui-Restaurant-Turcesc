@@ -21,7 +21,7 @@ Sample data used across all stages:
 
 | Tool | Used for |
 | --- | --- |
-| Gemini | Semantic HTML structuring, responsive 2-column Grid layout, Turkish kebab thematic styling, JavaScript data logic, Vite/React project initialization and troubleshooting |
+| Gemini | Semantic HTML structuring, responsive 2-column Grid layout, Turkish kebab thematic styling, JavaScript data logic, Vite/React project initialization, component decomposition (ComandaCard, ComandaList), and troubleshooting |
 
 Details per stage: see the `ai_log/` folder.
 
@@ -30,7 +30,7 @@ Details per stage: see the `ai_log/` folder.
 ### Stage 1 & Stage 2 (Static mockup)
 Open `mockup/index.html` in a web browser, or serve it using VS Code Live Server. No build step or backend required.
 
-### Stage 3 (React & Vite application)
+### Stage 3 & Stage 4 (React & Vite application)
 Make sure you have Node.js installed, then run:
 ```bash
 cd frontend
