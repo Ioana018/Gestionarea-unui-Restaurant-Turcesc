@@ -1,0 +1,232 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f5c53b; /* Același galben specific din Canva */
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: #1a1a1a;
+  min-height: 100vh;
+  padding: 24px 16px;
+}
+
+.page-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Header */
+.header-angajati {
+  position: relative;
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.btn-inapoi {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #000000;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  transition: opacity 0.2s ease;
+}
+
+.btn-inapoi:hover {
+  opacity: 0.8;
+}
+
+.header-angajati h1 {
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 900;
+  letter-spacing: -0.5px;
+}
+
+.subtitlu {
+  margin-top: 6px;
+  font-weight: 600;
+  color: #3d3419;
+  font-size: 0.95rem;
+}
+
+/* Bara orizontală compactă de introducere */
+.bara-adaugare {
+  background-color: #ffffff;
+  padding: 12px 16px;
+  border-radius: 50px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  margin-bottom: 32px;
+}
+
+.form-rapid {
+  display: flex;
+  gap: 12px;
+}
+
+.form-rapid input,
+.form-rapid select {
+  flex: 1;
+  padding: 12px 18px;
+  border: 1px solid #e0d5ba;
+  background-color: #faf8f2;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.form-rapid input:focus,
+.form-rapid select:focus {
+  border-color: #b91c1c;
+  background-color: #ffffff;
+}
+
+.form-rapid button {
+  background-color: #b91c1c;
+  color: #ffffff;
+  border: none;
+  padding: 0 24px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.form-rapid button:hover {
+  background-color: #8b0000;
+}
+
+/* Grila cu cardurile de profil ale angajaților */
+.grid-angajati {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.card-angajat {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+
+.card-angajat:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.14);
+}
+
+/* Avatar rotund cu inițiale */
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #fdf2d0;
+  color: #8b5d00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 900;
+  margin-bottom: 14px;
+}
+
+.detalii h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.rol {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.rol-grill {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+.rol-ospatar {
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+
+.rol-firin {
+  background-color: #fef3c7;
+  color: #b45309;
+}
+
+.telefon {
+  font-size: 0.85rem;
+  color: #666666;
+  margin-bottom: 16px;
+}
+
+/* Eticheta de stare: În tură vs Liber */
+.status-badge {
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 20px;
+  width: 80%;
+}
+
+.status-badge.activ {
+  background-color: #dcfce7;
+  color: #15803d;
+}
+
+.status-badge.liber {
+  background-color: #f3f4f6;
+  color: #6b7280;
+}
+
+.card-angajat.liber {
+  opacity: 0.75;
+}
+
+/* Responsivitate pentru ecrane înguste */
+@media (max-width: 650px) {
+  .header-angajati {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .btn-inapoi {
+    position: static;
+    transform: none;
+  }
+
+  .form-rapid {
+    flex-direction: column;
+  }
+
+  .bara-adaugare {
+    border-radius: 16px;
+  }
+
+  .form-rapid button {
+    padding: 12px;
+  }
+}
