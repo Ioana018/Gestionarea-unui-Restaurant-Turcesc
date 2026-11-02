@@ -1,0 +1,34 @@
+{
+  "comenzi": [
+    {
+      "id": 1,
+      "titlu": "Adana Kebab cu ardei copt",
+      "gata": false,
+      "zona": "grill"
+    },
+    {
+      "id": 2,
+      "titlu": "Pide cu vită și cașcaval (Kashar)",
+      "gata": true,
+      "zona": "cuptor"
+    },
+    {
+      "id": 3,
+      "titlu": "Künefe cu fistic de Antep",
+      "gata": false,
+      "zona": "desert"
+    },
+    {
+      "id": 4,
+      "titlu": "Tavuk Şiş (Frigărui de pui la grill)",
+      "gata": false,
+      "zona": "grill"
+    },
+    {
+      "id": 5,
+      "titlu": "Lahmacun cu verdețuri și lămâie",
+      "gata": true,
+      "zona": "cuptor"
+    }
+  ]
+}

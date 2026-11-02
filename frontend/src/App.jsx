@@ -1,26 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ComandaList from "./components/ComandaList.jsx";
-
-const COMENZI_INITIALE = [
-  {
-    id: 1,
-    titlu: "Adana Kebab cu ardei copt",
-    gata: false,
-    zona: "grill"
-  },
-  {
-    id: 2,
-    titlu: "Pide cu vită și cașcaval (Kashar)",
-    gata: true,
-    zona: "cuptor"
-  },
-  {
-    id: 3,
-    titlu: "Künefe cu fistic de Antep",
-    gata: false,
-    zona: "desert"
-  }
-];
+import { fetchComenzi } from "./api.js";
 
 function temaInitiala() {
   return window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -29,8 +9,37 @@ function temaInitiala() {
 }
 
 export default function App() {
-  const [comenzi, setComenzi] = useState(COMENZI_INITIALE);
+  const [comenzi, setComenzi] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [tema, setTema] = useState(temaInitiala);
+
+  useEffect(() => {
+    let ignore = false;
+
+    async function load() {
+      try {
+        const data = await fetchComenzi();
+        if (!ignore) {
+          setComenzi(data);
+        }
+      } catch (err) {
+        if (!ignore) {
+          setError(err.message);
+        }
+      } finally {
+        if (!ignore) {
+          setLoading(false);
+        }
+      }
+    }
+
+    load();
+
+    return () => {
+      ignore = true;
+    };
+  }, []);
 
   function handleToggle(id) {
     setComenzi((prev) =>
@@ -62,7 +71,7 @@ export default function App() {
           {tema === "dark" ? "Mod luminos" : "Mod întunecat"}
         </button>
         <h1>Turkish Kebab</h1>
-        <p>Monitorizarea preparatelor și a comenzilor din bucătărie.</p>
+        <p>Monitorizarea preparatelor și a fluxului de lucru din restaurant.</p>
         <p className="app-count">
           {comenzi.length} comenzi înregistrate, dintre care {activeCount} active
         </p>
@@ -71,11 +80,22 @@ export default function App() {
       <main className="container">
         <section className="panel">
           <h2>Comenzile mele</h2>
-          <ComandaList
-            comenzi={comenzi}
-            onToggle={handleToggle}
-            onDelete={handleDelete}
-          />
+
+          {loading && <p className="info">Se încarcă lista de comenzi...</p>}
+
+          {error && (
+            <p className="error">
+              Nu am putut încărca datele: {error}. Rulează <code>npm run api</code>?
+            </p>
+          )}
+
+          {!loading && !error && (
+            <ComandaList
+              comenzi={comenzi}
+              onToggle={handleToggle}
+              onDelete={handleDelete}
+            />
+          )}
         </section>
       </main>
     </>

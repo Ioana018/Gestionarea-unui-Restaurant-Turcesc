@@ -1,38 +1,26 @@
-# Turkish Kebab
+# Turkish Kebab - Dashboard Monitorizare Comenzi
 
-Turkish Kebab is a kitchen management web application designed to monitor food orders and dish preparation workflows across different kitchen stations.
+Aplicație web pentru gestionarea și monitorizarea în timp real a preparatelor și a fluxului de lucru dintr-un restaurant turcesc.
 
-## Data model
+---
 
-| Field | Type | Notes |
-| --- | --- | --- |
-| titlu | text | required, dish name, max 100 characters |
-| gata | boolean | toggled via checkbox, default false (in preparation) |
-| zona | fixed values | grill, cuptor, desert |
-| categorie | relation | Kebab, Pide, Meze, Deserturi |
-| ospatar | relation | waiter assigned to the order (from week 11) |
+## 🚀 Despre Proiect
+Această aplicație este dezvoltată în cadrul parcurgerii etapelor de laborator/proiect. Interfața permite vizualizarea comenzilor active și finalizate, marcarea preparatelor ca fiind gata, ștergerea comenzilor și schimbarea temei vizuale (Light/Dark mode). Datele sunt încărcate asincron dintr-un server API mock (`json-server`).
 
-Sample records:
-1. Adana Kebab cu ardei copt, false (in preparation), grill
-2. Pide cu vită și cașcaval (Kashar), true (ready), cuptor
-3. Künefe cu fistic de Antep, false (in preparation), desert
+---
 
-## AI usage
+## 🛠️ Tehnologii Utilizate
+- **React 19** (Vite, JSX)
+- **CSS3** (Variabile CSS, Responsive Design, Dark/Light Theme)
+- **JSON-Server** (Mock REST API pe portul `3001`)
+- **Git & GitHub** (Versionare și jurnale AI)
 
-| Tool | Used for |
-| --- | --- |
-| Gemini | Semantic HTML/CSS structure, responsive grid layout, JavaScript business logic, React component decomposition (ComandaCard, ComandaList), local state management with useState, and light/dark theme switching |
+---
 
-AI session logs for each stage are tracked in the `ai_log/` directory.
+## 📦 Instalare și Rulare Locală
 
-## How to run
-
-### Stage 1 & Stage 2 (Static mockup)
-Open the HTML files inside the `mockup/` directory directly in a browser or serve them using the VS Code Live Server extension.
-
-### Stage 3, Stage 4 & Stage 5 (React + Vite SPA)
-Ensure Node.js is installed on your machine, then run in terminal:
-```bash
-cd frontend
+### 1. Clonarea repozitoriului și instalarea dependențelor
+```powershell
+git clone <link-repo-github>
+cd "Restaurant turcesc/frontend"
 npm install
-npm run dev
