@@ -1,12 +1,16 @@
 import ComandaCard from "./ComandaCard.jsx";
 
 export default function ComandaList({ comenzi, onToggle, onDelete }) {
-  if (!comenzi || comenzi.length === 0) {
-    return <p className="empty">Nu există nicio comandă înregistrată.</p>;
+  if (comenzi.length === 0) {
+    return (
+      <p className="empty" data-testid="empty">
+        Nu există nicio comandă înregistrată.
+      </p>
+    );
   }
 
   return (
-    <ul className="order-list">
+    <ul className="task-list">
       {comenzi.map((comanda) => (
         <ComandaCard
           key={comanda.id}

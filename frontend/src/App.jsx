@@ -1,6 +1,13 @@
+import "./App.css";
 import { useEffect, useState } from "react";
 import ComandaList from "./components/ComandaList.jsx";
-import { fetchComenzi } from "./api.js";
+import ComandaForm from "./components/ComandaForm.jsx";
+import {
+  createComanda,
+  deleteComanda,
+  fetchComenzi,
+  updateComanda,
+} from "./api.js";
 
 function temaInitiala() {
   return window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -20,35 +27,45 @@ export default function App() {
     async function load() {
       try {
         const data = await fetchComenzi();
-        if (!ignore) {
-          setComenzi(data);
-        }
+        if (!ignore) setComenzi(data);
       } catch (err) {
-        if (!ignore) {
-          setError(err.message);
-        }
+        if (!ignore) setError(err.message);
       } finally {
-        if (!ignore) {
-          setLoading(false);
-        }
+        if (!ignore) setLoading(false);
       }
     }
 
     load();
-
     return () => {
       ignore = true;
     };
   }, []);
 
-  function handleToggle(id) {
-    setComenzi((prev) =>
-      prev.map((c) => (c.id === id ? { ...c, gata: !c.gata } : c))
-    );
+  // Întâi serverul, apoi state-ul
+  async function handleAdd(comanda) {
+    const creata = await createComanda(comanda);
+    setComenzi((prev) => [...prev, creata]);
   }
 
-  function handleDelete(id) {
-    setComenzi((prev) => prev.filter((c) => c.id !== id));
+  async function handleToggle(id) {
+    const comanda = comenzi.find((c) => c.id === id);
+    try {
+      const actualizata = await updateComanda(id, { gata: !comanda.gata });
+      setComenzi((prev) =>
+        prev.map((c) => (c.id === id ? actualizata : c))
+      );
+    } catch (err) {
+      setError(err.message);
+    }
+  }
+
+  async function handleDelete(id) {
+    try {
+      await deleteComanda(id);
+      setComenzi((prev) => prev.filter((c) => c.id !== id));
+    } catch (err) {
+      setError(err.message);
+    }
   }
 
   function handleTema() {
@@ -79,17 +96,26 @@ export default function App() {
 
       <main className="container">
         <section className="panel">
+          <h2>Adaugă comandă</h2>
+          <ComandaForm onAdd={handleAdd} />
+        </section>
+
+        <section className="panel">
           <h2>Comenzile mele</h2>
 
-          {loading && <p className="info">Se încarcă lista de comenzi...</p>}
-
-          {error && (
-            <p className="error">
-              Nu am putut încărca datele: {error}. Rulează <code>npm run api</code>?
+          {loading && (
+            <p className="info" data-testid="loading">
+              Se încarcă...
             </p>
           )}
 
-          {!loading && !error && (
+          {error && (
+            <p className="error" data-testid="error">
+              {error}
+            </p>
+          )}
+
+          {!loading && (
             <ComandaList
               comenzi={comenzi}
               onToggle={handleToggle}
