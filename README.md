@@ -24,3 +24,14 @@ Această aplicație este dezvoltată în cadrul parcurgerii etapelor de laborato
 git clone <link-repo-github>
 cd "Restaurant turcesc/frontend"
 npm install
+### Stage 7: form and validation
+Orders can be added directly from the page. The form is controlled and validated, and every change (add, toggle, delete) goes to the API before updating the list.
+
+## Checklist
+- [x] Stage 1: Setup & Initialization
+- [x] Stage 2: Component Architecture
+- [x] Stage 3: State & Interactivity
+- [x] Stage 4: Advanced Styling & Dark Mode
+- [x] Stage 5: Theme Toggle & Persistence
+- [x] Stage 6: Async Data Fetching (Mock API)
+- [x] Stage 7: Form and validation

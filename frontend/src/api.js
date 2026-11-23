@@ -31,3 +31,7 @@ export function updateComanda(id, changes) {
 export function deleteComanda(id) {
   return request(`/comenzi/${id}`, { method: "DELETE" });
 }
+
+export function fetchComanda(id) {
+  return request(`/comenzi/${id}`);
+}

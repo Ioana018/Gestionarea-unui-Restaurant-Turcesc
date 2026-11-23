@@ -1,10 +1,6 @@
 import { useState } from "react";
-
-const ZONE = [
-  { value: "grill", label: "Grill" },
-  { value: "cuptor", label: "Cuptor" },
-  { value: "desert", label: "Desert" },
-];
+import { ZONE } from "../constants.js";
+import styles from "./ComandaForm.module.css";
 
 const TITLU_MAX = 100;
 
@@ -46,7 +42,7 @@ export default function ComandaForm({ onAdd }) {
 
   return (
     <form
-      className="task-form"
+      className={styles.form}
       onSubmit={handleSubmit}
       noValidate
       data-testid="form"
@@ -85,7 +81,12 @@ export default function ComandaForm({ onAdd }) {
         </p>
       )}
 
-      <button type="submit" disabled={trimite} data-testid="form-submit">
+      <button
+        type="submit"
+        className="btn"
+        disabled={trimite}
+        data-testid="form-submit"
+      >
         {trimite ? "Se salvează..." : "Adaugă comanda"}
       </button>
     </form>

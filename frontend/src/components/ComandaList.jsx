@@ -1,4 +1,5 @@
 import ComandaCard from "./ComandaCard.jsx";
+import styles from "./ComandaList.module.css";
 
 export default function ComandaList({ comenzi, onToggle, onDelete }) {
   if (comenzi.length === 0) {
@@ -10,7 +11,7 @@ export default function ComandaList({ comenzi, onToggle, onDelete }) {
   }
 
   return (
-    <ul className="task-list">
+    <ul className={styles.list}>
       {comenzi.map((comanda) => (
         <ComandaCard
           key={comanda.id}

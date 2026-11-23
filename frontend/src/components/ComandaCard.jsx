@@ -1,30 +1,38 @@
-const ETICHETE_ZONA = {
-  grill: "Grill",
-  cuptor: "Cuptor",
-  desert: "Desert",
-};
+import { Link } from "react-router-dom";
+import { ETICHETE_ZONA } from "../constants.js";
+import styles from "./ComandaCard.module.css";
 
 export default function ComandaCard({ comanda, onToggle, onDelete }) {
   return (
     <li
-      className={comanda.gata ? "task-card done" : "task-card"}
+      className={
+        comanda.gata ? `${styles.card} ${styles.done}` : styles.card
+      }
       data-testid="item"
       data-id={comanda.id}
     >
-      <label className="task-main">
+      <div className={styles.main}>
         <input
           type="checkbox"
           checked={comanda.gata}
           onChange={() => onToggle(comanda.id)}
+          aria-label={`Marchează ${comanda.titlu}`}
           data-testid="item-toggle"
         />
         <div>
-          <h3 data-testid="item-title">{comanda.titlu}</h3>
+          <Link
+            to={`/comenzi/${comanda.id}`}
+            className={styles.title}
+            data-testid="item-link"
+          >
+            {comanda.titlu}
+          </Link>
           <span className={`badge badge-${comanda.zona}`}>
             {ETICHETE_ZONA[comanda.zona] ?? comanda.zona}
           </span>
         </div>
-      </label>
+      </div>
+
       <button
         type="button"
         className="btn-danger"
